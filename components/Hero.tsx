@@ -36,15 +36,15 @@ export default function Hero() {
           </motion.span>
 
           <h1 className="font-display text-[13vw] leading-[0.92] tracking-tight md:text-[6.4vw]">
-            <RevealText text="WE DON'T JUST" as="span" delay={0.15} />
+            <RevealText text="FOR" as="span" delay={0.3} />
             <br />
-            <RevealText text="GROW BRANDS." as="span" delay={0.3} />
+            <RevealText text="BRANDS." as="span" delay={0.3} />
             <br />
             <span className="text-stroke">
-              <RevealText text="WE BUILD" as="span" delay={0.45} />
+              <RevealText text="THAT" as="span" delay={0.5} />
             </span>
             <br />
-            <RevealText text="OBSESSIONS." as="span" className="text-accent" delay={0.6} />
+            <RevealText text="THINK BEYOND." as="span" className="text-accent" delay={0.6} />
           </h1>
 
           <motion.p
@@ -53,7 +53,7 @@ export default function Hero() {
             transition={{ delay: 1.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="mt-8 max-w-lg text-lg leading-relaxed text-secondary"
           >
-            Think Beyond Agency creates brands that people remember, talk about and buy from.
+            Anyone can share attention, Building a brand is different. It takes a clear Vision, Consistent, execution and the Courage to keep going long before the world starts noticing.
           </motion.p>
 
           <motion.div
@@ -86,7 +86,7 @@ export default function Hero() {
             className="absolute right-16 top-64"
           >
             <StickyNote rotate={6} delay={1.6} className="w-44 bg-[#E7EDFF]">
-              scroll ↓ there's more
+              "See what's Beyond"
             </StickyNote>
           </motion.div>
 
@@ -106,7 +106,7 @@ export default function Hero() {
               transition={{ delay: 1.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             />
             <motion.path
-              d="M68 68 L82 80 L70 84"
+              d="M85 68 L82 80 L60 74"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
@@ -123,16 +123,16 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8 }}
-        className="mx-auto mt-16 flex w-full max-w-container items-center justify-between px-1 font-mono text-xs uppercase tracking-widest text-secondary"
+        className="mx-auto mt-16 flex w-full max-w-container items-center justify-center px-1 font-mono text-xs uppercase tracking-widest text-secondary"
       >
-        <span>Est. India</span>
+        {/* <span>Est. India</span> */}
         <motion.span
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.6 }}
         >
           Scroll
         </motion.span>
-        <span>Creative &amp; Performance</span>
+        {/* <span>Creative &amp; Performance</span> */}
       </motion.div>
     </section>
   );

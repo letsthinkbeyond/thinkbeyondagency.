@@ -1,23 +1,35 @@
+// export const services = [
+//   { title: "Brand Building", desc: "Positioning, voice and identity systems built to be unmistakable.", icon: "FiCompass" },
+//   { title: "Content Creation", desc: "Editorial-grade content, made for feeds people actually stop for.", icon: "FiEdit3" },
+//   { title: "Social Media Management", desc: "Full calendars, captions and community, run end to end.", icon: "FiInstagram" },
+//   { title: "Performance Marketing", desc: "Funnels and creative built to convert, not just impress.", icon: "FiTrendingUp" },
+//   { title: "Meta Ads", desc: "Paid social that finds your buyer, not just your audience.", icon: "FiTarget" },
+//   { title: "Google Ads", desc: "Search and display campaigns tuned for intent, not vanity clicks.", icon: "FiSearch" },
+//   { title: "Website Design", desc: "Fast, editorial websites that read like a portfolio piece.", icon: "FiMonitor" },
+//   { title: "Video Production", desc: "Scroll-stopping edits, from concept to final cut.", icon: "FiVideo" },
+//   { title: "Influencer Marketing", desc: "Creator partnerships that read as culture, not ads.", icon: "FiUsers" },
+//   { title: "Photography", desc: "Product and lifestyle photography with a consistent visual language.", icon: "FiCamera" },
+//   { title: "Content Shoots", desc: "Structured monthly shoots that keep every channel stocked.", icon: "FiFilm" },
+//   { title: "Creative Direction", desc: "The point of view that keeps every asset on-brand.", icon: "FiPenTool" },
+// ];
+
 export const services = [
-  { title: "Brand Strategy", desc: "Positioning, voice and identity systems built to be unmistakable.", icon: "FiCompass" },
-  { title: "Content Creation", desc: "Editorial-grade content, made for feeds people actually stop for.", icon: "FiEdit3" },
-  { title: "Social Media Management", desc: "Full calendars, captions and community, run end to end.", icon: "FiInstagram" },
+  { title: "Brand Building", desc: "Positioning, voice and identity systems built to be unmistakable.", icon: "FiCompass" },
+  { title: "Visual Storytelling", desc: "Imagery and narrative that make a brand instantly recognizable.", icon: "FiCamera" },
+  { title: "Social Presence", desc: "Full calendars, captions and community, run end to end.", icon: "FiInstagram" },
   { title: "Performance Marketing", desc: "Funnels and creative built to convert, not just impress.", icon: "FiTrendingUp" },
-  { title: "Meta Ads", desc: "Paid social that finds your buyer, not just your audience.", icon: "FiTarget" },
-  { title: "Google Ads", desc: "Search and display campaigns tuned for intent, not vanity clicks.", icon: "FiSearch" },
-  { title: "Website Design", desc: "Fast, editorial websites that read like a portfolio piece.", icon: "FiMonitor" },
-  { title: "Video Production", desc: "Scroll-stopping edits, from concept to final cut.", icon: "FiVideo" },
+  { title: "Lead Generation", desc: "Campaigns engineered to fill the pipeline, not just the feed.", icon: "FiTarget" },
+  { title: "Website Building", desc: "Fast, editorial websites that read like a portfolio piece.", icon: "FiMonitor" },
   { title: "Influencer Marketing", desc: "Creator partnerships that read as culture, not ads.", icon: "FiUsers" },
-  { title: "Photography", desc: "Product and lifestyle photography with a consistent visual language.", icon: "FiCamera" },
-  { title: "Content Shoots", desc: "Structured monthly shoots that keep every channel stocked.", icon: "FiFilm" },
-  { title: "Creative Direction", desc: "The point of view that keeps every asset on-brand.", icon: "FiPenTool" },
+  { title: "Content Creation", desc: "Editorial-grade content, made for feeds people actually stop for.", icon: "FiEdit3" },
+  { title: "Brand Roadmap", desc: "A clear, staged plan that turns strategy into consistent execution.", icon: "FiCompass" },
 ];
 
 export const stats = [
   { value: 98, suffix: "%", label: "Client Retention" },
   { value: 250, suffix: "+", label: "Campaigns Delivered" },
-  { value: 50, suffix: "+", label: "Brands Grown" },
-  { value: 10, suffix: "M+", label: "Views Generated" },
+  { value: 50, suffix: "+", label: "Think Beyond Brands" },
+  { value: 10, suffix: "M+", label: "Beyond Impact" },
 ];
 
 export const portfolio = [
@@ -32,11 +44,11 @@ export const portfolio = [
 ];
 
 export const process = [
-  { title: "Discover", desc: "We map your market, audience and gaps before touching a single asset." },
-  { title: "Strategy", desc: "A documented plan — positioning, channels, cadence, and KPIs." },
-  { title: "Design", desc: "Visual identity and content systems built to be recognised in a scroll." },
-  { title: "Launch", desc: "Coordinated go-live across content, ads and community." },
-  { title: "Scale", desc: "Monthly reporting and iteration, so growth compounds." },
+  { title: "Research", desc: "Understanding your brand, audience and market." },
+  { title: "Strategy", desc: "Your brand vision is the box of every strategy we build." },
+  { title: "Visual", desc: "Where strategy meets storytelling." },
+  { title: "Implement", desc: "Execution is where your vision meets your excellence." },
+  { title: "Observe", desc: "We observe, learn and improve every step." },
 ];
 
 export const testimonials = [
@@ -48,9 +60,9 @@ export const testimonials = [
 
 export const pricing = [
   {
-    name: "Social Media",
+    name: "Essential",
     tagline: "For brands finding their footing",
-    price: "Custom",
+    price: "30k",
     features: [
       "Weekly 4 posts",
       "Daily 3 stories",
@@ -61,9 +73,9 @@ export const pricing = [
     highlighted: false,
   },
   {
-    name: "Growth",
+    name: "Elite",
     tagline: "For brands ready to scale",
-    price: "Custom",
+    price: "45K",
     features: [
       "Everything in Social Media",
       "2 content shoots / month",
@@ -75,9 +87,9 @@ export const pricing = [
     highlighted: true,
   },
   {
-    name: "Premium",
+    name: "Custom",
     tagline: "For brands going all-in",
-    price: "Custom",
+    price: "25k",
     features: [
       "Everything in Growth",
       "Influencer partnerships",

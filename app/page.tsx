@@ -13,11 +13,12 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const marqueeItems = [
-  "BRAND STRATEGY",
-  "CONTENT CREATION",
-  "SOCIAL MEDIA",
-  "PERFORMANCE MARKETING",
-  "CREATIVE DIRECTION",
+  "BRAND BUILDING",
+  "STORY TELLING",
+  "DIGITAL PRESENCE",
+  "LEAD GENERATION",
+  "CREATIVE CAMPAIGNS",
+  "PERFORMANCE MEDIA",
 ];
 
 export default function Home() {

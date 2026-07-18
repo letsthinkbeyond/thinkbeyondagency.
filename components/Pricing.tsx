@@ -11,7 +11,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="relative px-6 py-32 md:px-12">
       <div className="mx-auto max-w-container">
-        <SectionTitle label="investment" title="Plans Built To Scale" align="center" />
+        <SectionTitle label="Let's think beyond" title="Plans Built To Scale" align="center" />
 
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
           {pricing.map((plan, i) => (

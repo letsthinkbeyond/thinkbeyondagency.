@@ -8,7 +8,7 @@ export default function Testimonials() {
   return (
     <section className="relative px-6 py-32 md:px-12">
       <div className="mx-auto max-w-container">
-        <SectionTitle label="kind words" title="Brands We've Grown" />
+        <SectionTitle label="beyond words" title="Reviews" />
 
         <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-2">
           {testimonials.map((t, i) => (

@@ -16,7 +16,7 @@ export default function Process() {
   return (
     <section id="process" className="relative px-6 py-32 md:px-12">
       <div className="mx-auto max-w-container">
-        <SectionTitle label="how we work" title="From Idea To Impact" />
+        <SectionTitle label="how we think beyond" title="From Idea To Impact" />
 
         <div ref={ref} className="relative mt-20 pl-10 md:pl-16">
           <div className="absolute left-0 top-0 h-full w-[2px] bg-ink/10 dark:bg-ink-dark/10 md:left-2" />

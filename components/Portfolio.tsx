@@ -40,7 +40,7 @@ export default function Portfolio() {
   return (
     <section id="work" ref={sectionRef} className="relative overflow-hidden px-6 py-32 md:px-12">
       <div className="mx-auto mb-14 max-w-container">
-        <SectionTitle label="selected work" title="Work We're Proud Of" />
+        <SectionTitle label="tba's work" title="Top 10 Works" />
       </div>
 
       <div ref={trackRef} className="flex w-max gap-8 pl-6 md:pl-12">
