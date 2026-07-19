@@ -5,20 +5,76 @@ import { motion } from "framer-motion";
 import { FiPhone, FiMessageCircle, FiInstagram, FiMail, FiArrowUpRight } from "react-icons/fi";
 import RevealText from "./RevealText";
 import MagneticButton from "./MagneticButton";
+import type { ContactFormErrors } from "@/lib/contact-validation";
 
 const channels = [
-  { icon: FiPhone, label: "Phone", value: "+91 73833 62509", href: "tel:+917383362509" },
-  { icon: FiMessageCircle, label: "WhatsApp", value: "+91 94095 97422", href: "https://wa.me/919409597422" },
-  { icon: FiInstagram, label: "Instagram", value: "@thinkbeyondagency", href: "https://instagram.com" },
-  { icon: FiMail, label: "Email", value: "hello@thinkbeyondagency.com", href: "mailto:hello@thinkbeyondagency.com" },
+  { icon: FiPhone, label: "Phone", href: "tel:+917383362509" },
+  { icon: FiMessageCircle, label: "WhatsApp", href: "https://wa.me/919409597422" },
+  { icon: FiInstagram, label: "Instagram", href: "https://instagram.com/thinkbeyondagency" },
+  { icon: FiMail, label: "Email", href: "mailto:hello@thinkbeyondagency.com" },
 ];
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+type FormState = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
+const initialFormState: FormState = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+
+export default function Contact() {
+  const [form, setForm] = useState<FormState>(initialFormState);
+  const [fieldErrors, setFieldErrors] = useState<ContactFormErrors>({});
+  const [formError, setFormError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    setFieldErrors((prev) => ({ ...prev, [name]: undefined }));
+    setFormError("");
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setFieldErrors({});
+    setFormError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (data.errors) {
+          setFieldErrors(data.errors);
+        } else {
+          setFormError(data.message ?? "Something went wrong. Please try again.");
+        }
+        return;
+      }
+
+      setSubmitted(true);
+      setForm(initialFormState);
+    } catch {
+      setFormError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -38,18 +94,40 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 className="border border-accent/30 bg-accent/5 p-8 font-display text-2xl"
               >
-                Thanks — we'll be in touch within one business day.
+                Thanks — we&apos;ll be in touch within one business day.
               </motion.div>
             ) : (
               <>
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <FormField label="Name" name="name" placeholder="Your full name" />
-                  <FormField label="Email" name="email" type="email" placeholder="you@company.com" />
+                  <FormField
+                    label="Name"
+                    name="name"
+                    placeholder="Your full name"
+                    value={form.name}
+                    onChange={handleChange}
+                    error={fieldErrors.name}
+                    disabled={isSubmitting}
+                  />
+                  <FormField
+                    label="Email"
+                    name="email"
+                    type="email"
+                    placeholder="you@company.com"
+                    value={form.email}
+                    onChange={handleChange}
+                    error={fieldErrors.email}
+                    disabled={isSubmitting}
+                  />
                 </div>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <FormField label="Business" name="business" placeholder="Brand or company name" />
-                  <FormField label="Budget" name="budget" placeholder="Monthly budget range" />
-                </div>
+                <FormField
+                  label="Subject"
+                  name="subject"
+                  placeholder="What would you like to discuss?"
+                  value={form.subject}
+                  onChange={handleChange}
+                  error={fieldErrors.subject}
+                  disabled={isSubmitting}
+                />
                 <div className="flex flex-col gap-2">
                   <label className="font-mono text-xs uppercase tracking-widest text-secondary">
                     Message
@@ -58,38 +136,39 @@ export default function Contact() {
                     name="message"
                     rows={4}
                     placeholder="Tell us about your brand and goals"
-                    className="w-full resize-none border-b border-ink/20 bg-transparent py-3 font-sans outline-none transition-colors focus:border-accent dark:border-ink-dark/20"
+                    value={form.message}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full resize-none border-b border-ink/20 bg-transparent py-3 font-sans outline-none transition-colors focus:border-accent disabled:opacity-50 dark:border-ink-dark/20"
                   />
+                  {fieldErrors.message && (
+                    <p className="text-sm text-accent">{fieldErrors.message}</p>
+                  )}
                 </div>
+
+                {formError && <p className="text-sm text-accent">{formError}</p>}
+
                 <div className="mt-2">
-                  <MagneticButton>
-                    Submit <FiArrowUpRight />
+                  <MagneticButton type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Submit"} {!isSubmitting && <FiArrowUpRight />}
                   </MagneticButton>
                 </div>
               </>
             )}
           </form>
 
-          <div className="flex flex-col gap-5 md:col-span-5">
-            {channels.map((c) => (
+          <div className="flex items-start gap-4 md:col-span-5 md:justify-end">
+            {channels.map((channel) => (
               <a
-                key={c.label}
-                href={c.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                key={channel.label}
+                href={channel.href}
+                target={channel.href.startsWith("http") ? "_blank" : undefined}
+                rel={channel.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={channel.label}
                 data-cursor-hover
-                className="glass group flex items-center justify-between border border-ink/10 px-6 py-5 transition-transform duration-300 hover:-translate-y-1 dark:border-ink-dark/10"
+                className="glass group flex h-14 w-14 items-center justify-center rounded-full border border-ink/10 text-accent transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-accent/10 dark:border-ink-dark/10"
               >
-                <div className="flex items-center gap-4">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
-                    <c.icon size={16} />
-                  </span>
-                  <div>
-                    <p className="font-mono text-xs uppercase tracking-widest text-secondary">{c.label}</p>
-                    <p className="font-medium">{c.value}</p>
-                  </div>
-                </div>
-                <FiArrowUpRight className="opacity-40 transition-opacity group-hover:opacity-100" />
+                <channel.icon size={20} className="transition-transform group-hover:scale-110" />
               </a>
             ))}
           </div>
@@ -104,21 +183,36 @@ function FormField({
   name,
   type = "text",
   placeholder,
+  value,
+  onChange,
+  error,
+  disabled,
 }: {
   label: string;
   name: string;
   type?: string;
   placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
+  disabled?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="font-mono text-xs uppercase tracking-widest text-secondary">{label}</label>
+      <label htmlFor={name} className="font-mono text-xs uppercase tracking-widest text-secondary">
+        {label}
+      </label>
       <input
+        id={name}
         name={name}
         type={type}
         placeholder={placeholder}
-        className="w-full border-b border-ink/20 bg-transparent py-3 font-sans outline-none transition-colors focus:border-accent dark:border-ink-dark/20"
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+        className="w-full border-b border-ink/20 bg-transparent py-3 font-sans outline-none transition-colors focus:border-accent disabled:opacity-50 dark:border-ink-dark/20"
       />
+      {error && <p className="text-sm text-accent">{error}</p>}
     </div>
   );
 }

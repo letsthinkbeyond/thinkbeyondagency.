@@ -10,6 +10,8 @@ interface MagneticButtonProps {
   onClick?: () => void;
   href?: string;
   variant?: "solid" | "outline";
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export default function MagneticButton({
@@ -18,6 +20,8 @@ export default function MagneticButton({
   onClick,
   href,
   variant = "solid",
+  disabled = false,
+  type = "button",
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -53,9 +57,12 @@ export default function MagneticButton({
       <Comp
         href={href}
         onClick={onClick}
+        disabled={disabled}
+        type={href ? undefined : type}
         className={cn(
           "relative inline-flex items-center gap-2 overflow-hidden rounded-full px-8 py-4 font-sans text-sm font-medium transition-colors duration-300",
           base,
+          disabled && "cursor-not-allowed opacity-50",
           className
         )}
       >
