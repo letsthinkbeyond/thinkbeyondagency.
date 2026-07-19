@@ -1,7 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import BrandMarquee from "@/components/BrandMarquee";
 import About from "@/components/About";
+import { brandLogos } from "@/lib/brandLogos";
 import Services from "@/components/Services";
 import Stats from "@/components/Stats";
 import Portfolio from "@/components/Portfolio";
@@ -29,6 +31,7 @@ export default function Home() {
         <Hero />
         <Marquee items={marqueeItems} />
         <About />
+        <BrandMarquee logos={brandLogos} />
         <Services />
         <Stats />
         <Portfolio />

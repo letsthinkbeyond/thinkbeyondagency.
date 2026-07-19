@@ -36,7 +36,7 @@ export default function Hero() {
           </motion.span>
 
           <h1 className="font-display text-[13vw] leading-[0.92] tracking-tight md:text-[6.4vw]">
-            <RevealText text="FOR" as="span" delay={0.3} />
+            <RevealText text="FOR BRANDS" as="span" delay={0.3} />
             <br />
             <RevealText text="BRANDS." as="span" delay={0.3} />
             <br />
