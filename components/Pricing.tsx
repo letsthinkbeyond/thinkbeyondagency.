@@ -38,10 +38,10 @@ export default function Pricing() {
               <p className={cn("mt-1 text-sm", plan.highlighted ? "text-paper/60" : "text-secondary")}>
                 {plan.tagline}
               </p>
-              <p className="mt-6 font-display text-4xl">{plan.price}</p>
+              {/* <p className="mt-6 font-display text-4xl">{plan.price}</p>
               <p className={cn("font-mono text-xs uppercase tracking-widest", plan.highlighted ? "text-paper/50" : "text-secondary")}>
                 per month
-              </p>
+              </p> */}
 
               <ul className="mt-8 flex flex-1 flex-col gap-3">
                 {plan.features.map((f) => (

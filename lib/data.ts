@@ -14,15 +14,15 @@
 // ];
 
 export const services = [
-  { title: "Brand Building", desc: "Positioning, voice and identity systems built to be unmistakable.", icon: "FiCompass" },
-  { title: "Visual Storytelling", desc: "Imagery and narrative that make a brand instantly recognizable.", icon: "FiCamera" },
-  { title: "Social Presence", desc: "Full calendars, captions and community, run end to end.", icon: "FiInstagram" },
-  { title: "Performance Marketing", desc: "Funnels and creative built to convert, not just impress.", icon: "FiTrendingUp" },
-  { title: "Lead Generation", desc: "Campaigns engineered to fill the pipeline, not just the feed.", icon: "FiTarget" },
-  { title: "Website Building", desc: "Fast, editorial websites that read like a portfolio piece.", icon: "FiMonitor" },
-  { title: "Influencer Marketing", desc: "Creator partnerships that read as culture, not ads.", icon: "FiUsers" },
-  { title: "Content Creation", desc: "Editorial-grade content, made for feeds people actually stop for.", icon: "FiEdit3" },
-  { title: "Brand Roadmap", desc: "A clear, staged plan that turns strategy into consistent execution.", icon: "FiCompass" },
+  { title: "Brand Building", desc: "More than branding. Building belief.", icon: "FiCompass" },
+  { title: "Visual Storytelling", desc: "Every frame has a purpose.", icon: "FiCamera" },
+  { title: "Social Presence", desc: "The right presence keeps your vision visible.", icon: "FiInstagram" },
+  { title: "Performance Marketing", desc: "Every click should create value.", icon: "FiTrendingUp" },
+  { title: "Lead Generation", desc: "Connecting brands with the right audience.", icon: "FiTarget" },
+  { title: "Website Building", desc: "More than a website a digital brand experience.", icon: "FiMonitor" },
+  { title: "Influencer Marketing", desc: "The right creators make your vision more relatable.", icon: "FiUsers" },
+  { title: "Content Creation", desc: "Content created with purpose, not just for posting.", icon: "FiEdit3" },
+  { title: "Brand Roadmap", desc: "A clear roadmap keeps your vision on the right path.", icon: "FiCompass" },
 ];
 
 export const stats = [
@@ -45,7 +45,7 @@ export const portfolio = [
 
 export const process = [
   { title: "Research", desc: "Understanding your brand, audience and market." },
-  { title: "Strategy", desc: "Your brand vision is the box of every strategy we build." },
+  { title: "Strategy", desc: "Your brand vision is the base of every strategy we build." },
   { title: "Visual", desc: "Where strategy meets storytelling." },
   { title: "Implement", desc: "Execution is where your vision meets your excellence." },
   { title: "Observe", desc: "We observe, learn and improve every step." },

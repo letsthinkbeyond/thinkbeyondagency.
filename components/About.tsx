@@ -16,12 +16,16 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-2xl leading-snug md:col-span-7 md:text-4xl"
+            className="font-display text-xl leading-snug md:col-span-7 md:text-3xl"
           >
-            Think Beyond Agency is a creative marketing and branding agency helping
-            businesses grow through <span className="text-accent">strategy</span>,{" "}
-            <span className="text-accent">storytelling</span>, content creation,
-            performance marketing, branding and social media.
+            A founder doesn't build a brand to become just another name in the market. 
+            They build it with belief, sacrifice, and a vision for something bigger. 
+            <br />
+            <br />
+            At TBA, we begin by understanding that vision—the reason your brand exists,
+             the values behind it, and the future you dream of.
+             <span className="text-accent"> We create what you've always imagined for your brand</span>.
+             We don't want to change your vision—we want to help the world see it exactly as you imagined it.
           </motion.p>
 
           <div className="relative md:col-span-5">

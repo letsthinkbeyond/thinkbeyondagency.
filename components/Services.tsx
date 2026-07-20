@@ -9,7 +9,8 @@ export default function Services() {
   return (
     <section id="services" className="relative px-6 py-32 md:px-12">
       <div className="mx-auto max-w-container">
-        <SectionTitle label="what we do" title="Expertise" />
+        {/* <SectionTitle label="what we do" title="Expertise" /> */}
+        <SectionTitle label="Expertise" title="Expertise" />
 
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => {
