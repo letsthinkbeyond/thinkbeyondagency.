@@ -7,13 +7,27 @@ export type SmtpConfig = {
   contactEmail: string;
 };
 
+const PLACEHOLDER_VALUES = new Set([
+  "",
+  "your-email@gmail.com",
+  "your-app-password",
+  "replace_with_your_gmail_app_password",
+]);
+
+function readEnv(name: string): string {
+  const value = process.env[name]?.trim();
+  if (!value) return "";
+  if (PLACEHOLDER_VALUES.has(value.toLowerCase())) return "";
+  return value;
+}
+
 export function getSmtpConfig(): SmtpConfig | null {
-  const host = process.env.SMTP_HOST;
-  const port = process.env.SMTP_PORT;
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  const from = process.env.SMTP_FROM;
-  const contactEmail = process.env.CONTACT_EMAIL;
+  const host = readEnv("SMTP_HOST");
+  const port = readEnv("SMTP_PORT");
+  const user = readEnv("SMTP_USER");
+  const pass = readEnv("SMTP_PASS");
+  const from = readEnv("SMTP_FROM");
+  const contactEmail = readEnv("CONTACT_EMAIL");
 
   if (!host || !port || !user || !pass || !from || !contactEmail) {
     return null;
@@ -32,4 +46,17 @@ export function getSmtpConfig(): SmtpConfig | null {
     from,
     contactEmail,
   };
+}
+
+export function getMissingSmtpEnvVars(): string[] {
+  const required = [
+    "SMTP_HOST",
+    "SMTP_PORT",
+    "SMTP_USER",
+    "SMTP_PASS",
+    "SMTP_FROM",
+    "CONTACT_EMAIL",
+  ] as const;
+
+  return required.filter((name) => !readEnv(name));
 }

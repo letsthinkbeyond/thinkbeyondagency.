@@ -11,7 +11,7 @@ const channels = [
   { icon: FiPhone, label: "Phone", href: "tel:+917383362509" },
   { icon: FiMessageCircle, label: "WhatsApp", href: "https://wa.me/919409597422" },
   { icon: FiInstagram, label: "Instagram", href: "https://instagram.com/thinkbeyondagency" },
-  { icon: FiMail, label: "Email", href: "mailto:hello@thinkbeyondagency.com" },
+  { icon: FiMail, label: "Email", href: "mailto:letsthinkbeyond.co@gmail.com" },
 ];
 
 type FormState = {

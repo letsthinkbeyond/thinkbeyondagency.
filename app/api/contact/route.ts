@@ -5,7 +5,7 @@ import {
   hasValidationErrors,
   type ContactFormData,
 } from "@/lib/contact-validation";
-import { getSmtpConfig } from "@/lib/smtp";
+import { getSmtpConfig, getMissingSmtpEnvVars } from "@/lib/smtp";
 import { escapeHtml } from "@/lib/escape-html";
 
 export const runtime = "nodejs";
@@ -45,7 +45,8 @@ export async function POST(request: NextRequest) {
 
     const smtp = getSmtpConfig();
     if (!smtp) {
-      console.error("Contact API: missing or invalid SMTP environment variables");
+      const missing = getMissingSmtpEnvVars();
+      console.error("Contact API: missing or invalid SMTP environment variables:", missing);
       return NextResponse.json(
         {
           success: false,
@@ -70,7 +71,10 @@ export async function POST(request: NextRequest) {
         user: smtp.user,
         pass: smtp.pass,
       },
+      ...(smtp.port === 587 && { requireTLS: true }),
     });
+
+    await transporter.verify();
 
     await transporter.sendMail({
       from: smtp.from,

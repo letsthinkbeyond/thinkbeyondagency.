@@ -37,16 +37,16 @@ export default function Hero() {
 
           <h1 className="font-display text-[13vw] leading-[0.92] tracking-tight md:text-[6.4vw]">
             <span className="text-stroke">
-              <RevealText text="FOR" as="span" delay={0.3} />
+              <RevealText text="FOR" as="span" delay={0.05} />
             </span>
             <br />
-            <RevealText text="BRANDS." as="span" delay={0.3} />
+            <RevealText text="BRANDS." as="span" delay={0.05} />
             <br />
             <span className="text-stroke">
-              <RevealText text="THAT" as="span" delay={0.5} />
+              <RevealText text="THAT" as="span" delay={0.1} />
             </span>
             <br />
-            <RevealText text="THINK BEYOND." as="span" className="text-accent" delay={0.6} />
+            <RevealText text="THINK BEYOND." as="span" className="text-accent" delay={0.15} />
           </h1>
 
           <motion.p

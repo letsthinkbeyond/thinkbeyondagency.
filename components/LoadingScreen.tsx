@@ -19,6 +19,7 @@ export default function LoadingScreen() {
           setTimeout(() => {
             setDone(true);
             document.body.style.overflow = "";
+            window.dispatchEvent(new Event("app-loaded"));
           }, 350);
           return 100;
         }
