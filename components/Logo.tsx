@@ -1,6 +1,6 @@
 import Image from "next/image";
-import tbaLogo from "../lib/TBA LOGOS/TBA LOGO.png";
-import { cn } from "../lib/utils.js";
+import tbaLogo from "@/lib/TBA LOGOS/TBA LOGO.PNG";
+import { cn } from "@/lib/utils";
 
 type LogoSize = "navbar" | "loading" | "footer";
 
