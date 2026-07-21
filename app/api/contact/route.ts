@@ -10,7 +10,11 @@ import { escapeHtml } from "@/lib/escape-html";
 
 export const runtime = "nodejs";
 
-function parseContactBody(body: unknown): ContactFormData & { website?: string } {
+function parseContactBody(body: unknown): ContactFormData & {
+  website?: string;
+  brandName?: string;
+  contactNo?: string;
+} {
   if (!body || typeof body !== "object") {
     return { name: "", email: "", subject: "", message: "" };
   }
@@ -23,13 +27,36 @@ function parseContactBody(body: unknown): ContactFormData & { website?: string }
     subject: typeof record.subject === "string" ? record.subject : "",
     message: typeof record.message === "string" ? record.message : "",
     website: typeof record.website === "string" ? record.website : "",
+    brandName: typeof record.brandName === "string" ? record.brandName : "",
+    contactNo: typeof record.contactNo === "string" ? record.contactNo : "",
   };
+}
+
+function buildMessageBody(
+  message: string,
+  brandName?: string,
+  contactNo?: string,
+): string {
+  const details: string[] = [];
+
+  if (brandName?.trim()) {
+    details.push(`Brand Name: ${brandName.trim()}`);
+  }
+  if (contactNo?.trim()) {
+    details.push(`Contact No: ${contactNo.trim()}`);
+  }
+
+  if (details.length === 0) {
+    return message;
+  }
+
+  return `${details.join("\n")}\n\n${message}`;
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { website, ...formData } = parseContactBody(body);
+    const { website, brandName, contactNo, ...formData } = parseContactBody(body);
 
     if (website?.trim()) {
       return NextResponse.json({
@@ -60,7 +87,11 @@ export async function POST(request: NextRequest) {
       name: formData.name.trim(),
       email: formData.email.trim(),
       subject: formData.subject.trim(),
-      message: formData.message.trim(),
+      message: buildMessageBody(
+        formData.message.trim(),
+        brandName,
+        contactNo,
+      ),
     };
 
     const transporter = nodemailer.createTransport({

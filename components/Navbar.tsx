@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { FiMoon, FiSun, FiMenu, FiX } from "react-icons/fi";
 import MagneticButton from "./MagneticButton";
+import Logo from "./Logo";
 
 const links = [
   { label: "About", href: "#about" },
@@ -54,8 +55,8 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-container items-center justify-between px-6 py-5 md:px-12">
-        <a href="#top" data-cursor-hover className="font-display text-2xl tracking-tight">
-          TBA<span className="text-accent">.</span>
+        <a href="#top" data-cursor-hover className="inline-flex shrink-0 items-center">
+          <Logo size="navbar" priority />
         </a>
 
         <nav className="hidden items-center gap-9 md:flex">

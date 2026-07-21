@@ -8,15 +8,16 @@ import MagneticButton from "./MagneticButton";
 import type { ContactFormErrors } from "@/lib/contact-validation";
 
 const channels = [
-  { icon: FiPhone, label: "Phone", href: "tel:+917383362509" },
   { icon: FiMessageCircle, label: "WhatsApp", href: "https://wa.me/919409597422" },
-  { icon: FiInstagram, label: "Instagram", href: "https://instagram.com/thinkbeyondagency" },
+  { icon: FiInstagram, label: "Instagram", href: "https://www.instagram.com/thinkbeyondagency/" },
   { icon: FiMail, label: "Email", href: "mailto:letsthinkbeyond.co@gmail.com" },
 ];
 
 type FormState = {
   name: string;
   email: string;
+  brandName: string;
+  contactNo: string;
   subject: string;
   message: string;
 };
@@ -24,6 +25,8 @@ type FormState = {
 const initialFormState: FormState = {
   name: "",
   email: "",
+  brandName: "",
+  contactNo: "",
   subject: "",
   message: "",
 };
@@ -86,8 +89,11 @@ export default function Contact() {
           <RevealText text="Beyond." as="span" className="text-accent" delay={0.15} />
         </h2>
 
+        {/* <div className="mt-16 md:justify-center grid grid-cols-1 gap-16 md:grid-cols-12"> */}
         <div className="mt-16 grid grid-cols-1 gap-16 md:grid-cols-12">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6 md:col-span-7">
+          {/* <form onSubmit={handleSubmit} className="flex flex-col gap-6 md:col-span-7"> */}
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6 md:col-span-7 md:col-start-2">
+    
             {submitted ? (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -116,6 +122,25 @@ export default function Contact() {
                     value={form.email}
                     onChange={handleChange}
                     error={fieldErrors.email}
+                    disabled={isSubmitting}
+                  />
+                </div>
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <FormField
+                    label="Brand Name"
+                    name="brandName"
+                    placeholder="Your brand or company name"
+                    value={form.brandName}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                  />
+                  <FormField
+                    label="Contact No."
+                    name="contactNo"
+                    type="tel"
+                    placeholder="Your phone number"
+                    value={form.contactNo}
+                    onChange={handleChange}
                     disabled={isSubmitting}
                   />
                 </div>
@@ -157,7 +182,8 @@ export default function Contact() {
             )}
           </form>
 
-          <div className="flex items-start gap-4 md:col-span-5 md:justify-end">
+          {/* <div className="flex items-start gap-4 md:col-span-2 md:justify-end"> */}
+          <div className="flex items-start gap-4 md:col-span-3 md:justify-end">
             {channels.map((channel) => (
               <a
                 key={channel.label}

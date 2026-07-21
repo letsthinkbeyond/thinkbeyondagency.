@@ -13,7 +13,7 @@ function LogoTrack({ logos }: { logos: StaticImageData[] }) {
             src={logo}
             alt="Brand partner logo"
             // className="max-h-full max-w-full object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-            className="max-h-28 max-w-full object-contain opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+            className="max-h-28 max-w-full object-contain opacity-100 transition-all duration-300 hover:opacity-100 hover:grayscale-0"
             sizes="(max-width: 768px) 144px, 176px"
           />
         </div>
