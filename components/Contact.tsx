@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiPhone, FiMessageCircle, FiInstagram, FiMail, FiArrowUpRight } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa6";
+import { FiPhone, FiInstagram, FiMail, FiArrowUpRight } from "react-icons/fi";
 import RevealText from "./RevealText";
 import MagneticButton from "./MagneticButton";
 import type { ContactFormErrors } from "@/lib/contact-validation";
 
 const channels = [
-  { icon: FiMessageCircle, label: "WhatsApp", href: "https://wa.me/919409597422" },
+  { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/919409597422" },
   { icon: FiInstagram, label: "Instagram", href: "https://www.instagram.com/thinkbeyondagency/" },
   { icon: FiMail, label: "Email", href: "mailto:letsthinkbeyond.co@gmail.com" },
 ];
