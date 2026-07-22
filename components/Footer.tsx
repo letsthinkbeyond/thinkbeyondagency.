@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-ink/10 px-6 pt-20 pb-8 md:px-12 dark:border-ink-dark/10">
+    <footer className="relative overflow-hidden border-t border-ink/10 px-6 pt-2 pb-8 md:px-12 dark:border-ink-dark/10">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}

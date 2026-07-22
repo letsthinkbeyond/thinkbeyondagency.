@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 type LogoSize = "navbar" | "loading" | "footer";
 
 const sizeClasses: Record<LogoSize, string> = {
-  navbar: "h-8 w-auto md:h-9",
-  loading: "h-[13vw] w-auto md:h-[9vw]",
-  footer: "h-[22vw] w-auto md:h-[16vw]",
+  navbar: "h-8 w-auto md:h-12",
+  loading: "h-[26vw] w-auto md:h-[18vw]",
+  footer: "h-[32vw] w-auto md:h-[26vw]",
 };
 
 interface LogoProps {
