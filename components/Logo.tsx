@@ -1,5 +1,7 @@
 import Image from "next/image";
-import tbaLogo from "@/lib/TBA-LOGOS/TBA-LOGO.PNG";
+import tbaLogoWhite from "@/lib/TBA-LOGOS/TBA-LOGO-WHITE.svg";
+import tbaLogoDark from "@/lib/TBA-LOGOS/TBA-LOGO-DARK.svg";
+
 import { cn } from "@/lib/utils";
 
 type LogoSize = "navbar" | "loading" | "footer";
@@ -18,15 +20,19 @@ interface LogoProps {
 
 export default function Logo({ size = "navbar", className, priority = false }: LogoProps) {
   return (
-    <Image
-      src={tbaLogo}
-      alt="Think Beyond Agency"
-      priority={priority}
-      className={cn(
-        "object-contain object-left dark:brightness-0 dark:invert",
-        sizeClasses[size],
-        className,
-      )}
-    />
+    <div className={cn("inline-flex", sizeClasses[size])}>
+      <Image
+        src={tbaLogoDark}
+        alt="Think Beyond Agency"
+        priority={priority}
+        className={cn("block h-full w-auto object-contain object-left dark:hidden", className)}
+      />
+      <Image
+        src={tbaLogoWhite}
+        alt="Think Beyond Agency"
+        priority={priority}
+        className={cn("hidden h-full w-auto object-contain object-left dark:block", className)}
+      />
+    </div>
   );
 }
