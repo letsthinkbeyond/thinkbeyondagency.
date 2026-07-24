@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
-import posterImage from "../lib/poster.png";
+import posterImage from "../lib/posters.png";
 
 export default function About() {
   return (
