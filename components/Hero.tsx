@@ -13,6 +13,7 @@ export default function Hero() {
   const [size, setSize] = useState({ w: 1600, h: 900 });
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     setSize({ w: window.innerWidth, h: window.innerHeight });
   }, []);
 

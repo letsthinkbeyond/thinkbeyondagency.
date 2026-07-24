@@ -29,6 +29,8 @@ export default function Navbar() {
   });
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const saved = localStorage.getItem("tba-theme");
     if (saved === "dark") {
       setDark(true);
@@ -39,8 +41,12 @@ export default function Navbar() {
   const toggleDark = () => {
     setDark((d) => {
       const next = !d;
-      document.documentElement.classList.toggle("dark", next);
-      localStorage.setItem("tba-theme", next ? "dark" : "light");
+      if (typeof document !== "undefined") {
+        document.documentElement.classList.toggle("dark", next);
+      }
+      if (typeof window !== "undefined") {
+        localStorage.setItem("tba-theme", next ? "dark" : "light");
+      }
       return next;
     });
   };

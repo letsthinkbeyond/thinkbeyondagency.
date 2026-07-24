@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
-import PaperCard from "./PaperCard";
+import posterImage from "../lib/poster.png";
 
 export default function About() {
   return (
@@ -28,18 +29,36 @@ export default function About() {
              We don't want to change your vision—we want to help the world see it exactly as you imagined it.
           </motion.p>
 
-          <div className="relative md:col-span-5">
-            <div className="relative mx-auto h-72 w-full max-w-xs">
-              <PaperCard rotate={-6} delay={0.1} className="absolute left-0 top-0 w-64">
-                <p className="font-mono text-xs uppercase tracking-widest text-secondary">Approach</p>
-                <p className="mt-3 font-display text-xl">Strategy before aesthetics.</p>
-              </PaperCard>
-              <PaperCard rotate={4} delay={0.25} className="absolute left-10 top-20 w-64">
-                <p className="font-mono text-xs uppercase tracking-widest text-secondary">Output</p>
-                <p className="mt-3 font-display text-xl">Content people stop for.</p>
-              </PaperCard>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="relative flex items-center justify-center md:col-span-5"
+          >
+            {/* <div className="relative mx-auto w-full max-w-[18rem] overflow-hidden rounded-[2rem] border border-white/20 bg-[#f7efe5] p-2 shadow-[0_25px_80px_rgba(0,0,0,0.15)]">
+              <Image
+                src={posterImage}
+                alt="TBA agency poster"
+                width={600}
+                height={800}
+                priority
+                className="h-auto w-full rounded-[1.5rem] object-cover"
+              />
+            </div> */}
+            <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-white/20 bg-[#f7efe5] p-2 shadow-[0_25px_80px_rgba(0,0,0,0.15)]">
+              <div className="relative h-full w-full overflow-hidden rounded-[1.5rem]">
+                <Image
+                  src={posterImage}
+                  alt="TBA agency poster"
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 40vw, 90vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -25,6 +25,8 @@ export default function RevealText({
   const [forceReveal, setForceReveal] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleReady = () => setAppReady(true);
 
     window.addEventListener("app-loaded", handleReady);

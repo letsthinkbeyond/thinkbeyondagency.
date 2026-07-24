@@ -9,6 +9,8 @@ export default function LoadingScreen() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    if (typeof document === "undefined") return;
+
     document.body.style.overflow = "hidden";
     const interval = setInterval(() => {
       setProgress((p) => {
@@ -17,8 +19,12 @@ export default function LoadingScreen() {
           clearInterval(interval);
           setTimeout(() => {
             setDone(true);
-            document.body.style.overflow = "";
-            window.dispatchEvent(new Event("app-loaded"));
+            if (typeof document !== "undefined") {
+              document.body.style.overflow = "";
+            }
+            if (typeof window !== "undefined") {
+              window.dispatchEvent(new Event("app-loaded"));
+            }
           }, 350);
           return 100;
         }

@@ -52,10 +52,10 @@ export const process = [
 ];
 
 export const testimonials = [
-  { name: "Rhea Malhotra", role: "Founder, Brü Haus Café", quote: "TBA didn't just manage our page — they gave our café a personality people recognise across the city.", rot: -4 },
-  { name: "Aman Sethi", role: "CEO, Shantaz Technofoods", quote: "The strategy work upfront changed how we think about every campaign since.", rot: 3 },
-  { name: "Priya Nair", role: "Marketing Lead, XFashion", quote: "Every shoot day feels effortless now. The output is consistently on-brand.", rot: -2 },
-  { name: "Karan Desai", role: "Founder, Physio Fit", quote: "Our booking rate from Instagram alone doubled within a quarter.", rot: 5 },
+  { name: " Downers Dream", role: "Founder", quote: "Working with Think Beyond was honestly a smooth experience. They understood our brand quickly and came up with ideas that actually made sense for us. Really happy with how everything turned out.  ", rot: -4 },
+  { name: "Wasim", role: "Content Creator", quote: "Think Beyond doesn't do random collaborations. They first understand your niche and connect you with brands that actually fit your audience. They also encourage you to create content in your own style instead of changing who you are. Because of that, my reach improved, and I started getting more recognition from brands in my niche.", rot: 3 },
+  { name: "Saurav Jhawar", role: "Startup Brand Owner", quote: "When we started, we had a good product but very little understanding of how to build our brand online. TBA guided us through every step—from content planning to building a strong social presence.Today we're in a much better position than when we started. We're still growing, and it's great to have TBA as part of that journey.", rot: -2 },
+  { name: "Hardik Jain", role: "Business Owner, USA", quote: "I wasn't sure about working with an agency in another country at first, but TBA made it easy. It took a little time to get in sync, and now it feels like they're part of our team. They're hardworking, super responsive, and always on top of things. I don't have to worry about the marketing anymore. Thanks to TBA for making it all so easy.", rot: 5 },
 ];
 
 export const pricing = [
